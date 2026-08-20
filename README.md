@@ -10,6 +10,9 @@ REAL :  genuine human face
 FAKE :  AI-generated face
 The original FSFM model was pretrained on approximately 3.3 million faces from VGGFace2 using self-supervised facial representation learning.
 
+<img width="2354" height="1299" alt="real_vs_fake_samples" src="https://github.com/user-attachments/assets/c72d6fa6-bc05-4c50-87d6-abc4fcfa7d0c" />
+
+
 ## Key Features
    The project includes five improvements over a basic fine-tuning pipeline:
 1. Focal Loss
@@ -100,6 +103,14 @@ deepfake_subset/
    TTA EER : 0.0525
 
    The best validation AUC during training was approximately 99.05%.
+
+<img width="1248" height="704" alt="focal_vs_ce" src="https://github.com/user-attachments/assets/79d4f730-07bf-422c-945a-8df3db1f825d" />
+
+<img width="2985" height="1770" alt="training_history" src="https://github.com/user-attachments/assets/2961f427-547f-421e-90de-b62c6c9c821c" />
+
+<img width="2263" height="882" alt="roc_confusion" src="https://github.com/user-attachments/assets/650b4e4e-e5fa-4eca-9aea-984f2c55ea46" />
+
+
 
 ## Note: These results are based on the subset used in the notebook and should not be interpreted as performance on the complete 140K dataset.
 
