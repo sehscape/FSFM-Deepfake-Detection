@@ -11,33 +11,24 @@ FAKE – AI-generated face
 The original FSFM model was pretrained on approximately 3.3 million faces from VGGFace2 using self-supervised facial representation learning.
 
 ## Key Features
-The project includes five improvements over a basic fine-tuning pipeline:
+   The project includes five improvements over a basic fine-tuning pipeline:
 1. Focal Loss
 2. Cosine Annealing with Warm Restarts
 3. Progressive Unfreezing with Layer-wise Learning Rate Decay (LLRD)
 4. Test-Time Augmentation (TTA)
 5. Stochastic Weight Averaging (SWA)
 
-These techniques are implemented to improve generalization and robustness of the deepfake detector.
-
-## Dataset Used in This Project
-To make training practical on a Google Colab T4 GPU, a subset was created:
-
-Split   	     Real	          Fake 	           Total
-Train   	    3,000           3,000	           6,000
-Validation	  1,000	          1,000	           2,000
-Test	        2,000	          2,000	           4,000
-Total       	6,000	          6,000	           12,000
+    These techniques are implemented to improve generalization and robustness of the deepfake detector.
 
 ## Training Pipeline
 1. Environment Setup
-The notebook checks:
+   The notebook checks:
 
-Python version
-PyTorch version
-CUDA availability
-GPU type
-GPU memory
+   Python version
+   PyTorch version
+   CUDA availability
+   GPU type
+   GPU memory
 
 Training was performed using a GPU environment.
 
@@ -49,87 +40,96 @@ The FSFM ViT-B/16 pretrained checkpoint is downloaded from Hugging Face.
 The Kaggle dataset is downloaded using kagglehub and organized into:
 
 deepfake_subset/
+
 ├── train/
+
 │   ├── real/
-│   └── fake/
+
+│   └── fake/ 
+
 ├── valid/
+
 │   ├── real/
+
 │   └── fake/
+
 └── test/
+
     ├── real/
+    
     └── fake/
 
 4. Fine-Tuning
 
-The pretrained model is fine-tuned using:
+   The pretrained model is fine-tuned using:
 
-Focal Loss
-AdamW optimizer
-Cosine Annealing Warm Restarts
-Progressive layer unfreezing
-Layer-wise learning rate decay
-Mixed precision training
+   Focal Loss
+   AdamW optimizer
+   Cosine Annealing Warm Restarts
+   Progressive layer unfreezing
+   Layer-wise learning rate decay
+   Mixed precision training
 
-Training is performed for 15 epochs
+   Training is performed for 15 epochs
 
 5. Stochastic Weight Averaging
 
-SWA is applied using checkpoints from the later training epochs to obtain a more robust final model.
+   SWA is applied using checkpoints from the later training epochs to obtain a more robust final model.
 
 6. Test-Time Augmentation
 
-The final model can evaluate an image using multiple transformed views and average the predictions.
+   The final model can evaluate an image using multiple transformed views and average the predictions.
 
-This produces a more robust prediction compared with using a single image transformation.
+   This produces a more robust prediction compared with using a single image transformation.
 
 ## Results
 
-The trained model achieved the following results on the held-out test subset:
+   The trained model achieved the following results on the held-out test subset:
 
-Metric	              Result
-Accuracy	            93.25%
-Balanced Accuracy	    93.25%
-AUC-ROC	              98.76%
-EER	                  0.0585
+    Metric - Result
+    Accuracy - 93.25%
+    Balanced Accuracy - 93.25%
+    AUC-ROC - 98.76%
+    EER	- 0.0585
 
-Using Test-Time Augmentation:
+   Using Test-Time Augmentation:
 
-Metric	              Result
-TTA Accuracy	        93.40%
-TTA AUC-ROC	          98.84%
-TTA EER	              0.0525
+   Metric - Result
+   TTA Accuracy	- 93.40%
+   TTA AUC-ROC - 98.84%
+   TTA EER - 0.0525
 
-The best validation AUC during training was approximately 99.05%.
+   The best validation AUC during training was approximately 99.05%.
 
 ## Note: These results are based on the subset used in the notebook and should not be interpreted as performance on the complete 140K dataset.
 
 ## Technologies Used
 
-Python
-PyTorch
-Torchvision
-timm
-Hugging Face Hub
-Scikit-learn
-NumPy
-SciPy
-Matplotlib
-Seaborn
-Pillow
-tqdm
-KaggleHub
+    Python
+    PyTorch
+    Torchvision
+    timm
+    Hugging Face Hub
+    Scikit-learn
+    NumPy
+    SciPy
+    Matplotlib
+    Seaborn
+    Pillow
+    tqdm
+    KaggleHub
 
 
 ## Hardware Requirements
 
-Training is computationally intensive because FSFM ViT-B/16 is a large vision transformer.
+   Training is computationally intensive because FSFM ViT-B/16 is a large vision transformer.
 
-Recommended:
+   Recommended:
 
-Google Colab
-NVIDIA T4 GPU or better
-Approximately 16 GB GPU VRAM
-CUDA-enabled PyTorch
+    Google Colab
+    NVIDIA T4 GPU or better
+    Approximately 16 GB GPU VRAM
+    CUDA-enabled PyTorch
 
 ## How to Run
 1. Clone the repository - git clone https://github.com/YOUR_USERNAME/FSFM-Deepfake-Detection.git cd FSFM-Deepfake-Detection
@@ -145,24 +145,24 @@ CUDA-enabled PyTorch
 
 4. Enable GPU
 
-For Google Colab:
+   For Google Colab:
 
-Runtime → Change runtime type → T4 GPU
+   Runtime → Change runtime type → T4 GPU
 
 5. Run the notebook
 
-The notebook automatically:
+   The notebook automatically:
 
-Installs/imports required packages
-Downloads the pretrained FSFM checkpoint
-Downloads the Kaggle dataset
-Creates the training subset
-Preprocesses the images
-Fine-tunes the model
-Applies SWA
-Evaluates the model
-Performs TTA
-Generates visualizations
+    Installs/imports required packages
+    Downloads the pretrained FSFM checkpoint
+    Downloads the Kaggle dataset
+    Creates the training subset
+    Preprocesses the images
+    Fine-tunes the model
+    Applies SWA
+    Evaluates the model
+    Performs TTA
+    Generates visualizations
 
 ## References
 #  FSFM
