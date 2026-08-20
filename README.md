@@ -6,8 +6,8 @@ The model is fine tuned on the Kaggle 140K Real and Fake Faces dataset and incor
 
 Deepfakes are AI-generated or manipulated images that can be difficult to distinguish from genuine facial images.
 This project uses a pretrained FSFM ViT-B/16 model and fine-tunes it for binary classification:
-REAL : genuine human face
-FAKE : AI-generated face
+REAL :  genuine human face
+FAKE :  AI-generated face
 The original FSFM model was pretrained on approximately 3.3 million faces from VGGFace2 using self-supervised facial representation learning.
 
 ## Key Features
@@ -54,7 +54,9 @@ deepfake_subset/
 │   └── fake/
 
 └── test/
+
     ├── real/
+    
     └── fake/
 
 4. Fine-Tuning
