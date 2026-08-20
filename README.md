@@ -1,13 +1,13 @@
 ### FSFM-Deepfake-Detection
 A deep learning project for real vs. fake face detection using the FSFM-3C (Face Security Foundation Model) with a ViT-B/16 backbone.
-The model is fine-tuned on the Kaggle 140K Real and Fake Faces dataset and incorporates five improvements to enhance deepfake detection performance.
+The model is fine tuned on the Kaggle 140K Real and Fake Faces dataset and incorporates five improvements to enhance deepfake detection performance.
 
 ## Project Overview
 
 Deepfakes are AI-generated or manipulated images that can be difficult to distinguish from genuine facial images.
 This project uses a pretrained FSFM ViT-B/16 model and fine-tunes it for binary classification:
-REAL – genuine human face
-FAKE – AI-generated face
+REAL : genuine human face
+FAKE : AI-generated face
 The original FSFM model was pretrained on approximately 3.3 million faces from VGGFace2 using self-supervised facial representation learning.
 
 ## Key Features
@@ -15,7 +15,7 @@ The original FSFM model was pretrained on approximately 3.3 million faces from V
 1. Focal Loss
 2. Cosine Annealing with Warm Restarts
 3. Progressive Unfreezing with Layer-wise Learning Rate Decay (LLRD)
-4. Test-Time Augmentation (TTA)
+4. Test Time Augmentation (TTA)
 5. Stochastic Weight Averaging (SWA)
 
     These techniques are implemented to improve generalization and robustness of the deepfake detector.
@@ -54,9 +54,7 @@ deepfake_subset/
 │   └── fake/
 
 └── test/
-
     ├── real/
-    
     └── fake/
 
 4. Fine-Tuning
@@ -86,18 +84,18 @@ deepfake_subset/
 
    The trained model achieved the following results on the held-out test subset:
 
-    Metric - Result
-    Accuracy - 93.25%
-    Balanced Accuracy - 93.25%
-    AUC-ROC - 98.76%
-    EER	- 0.0585
+    Metric : Result
+    Accuracy : 93.25%
+    Balanced Accuracy : 93.25%
+    AUC-ROC : 98.76%
+    EER	: 0.0585
 
    Using Test-Time Augmentation:
 
-   Metric - Result
-   TTA Accuracy	- 93.40%
-   TTA AUC-ROC - 98.84%
-   TTA EER - 0.0525
+   Metric : Result
+   TTA Accuracy	: 93.40%
+   TTA AUC-ROC : 98.84%
+   TTA EER : 0.0525
 
    The best validation AUC during training was approximately 99.05%.
 
@@ -132,8 +130,8 @@ deepfake_subset/
     CUDA-enabled PyTorch
 
 ## How to Run
-1. Clone the repository - FSFM-Deepfake-Detection.git
-2. Install dependencies - pip install -r requirements.txt
+1. Clone the repository : FSFM-Deepfake-Detection.git
+2. Install dependencies -: pip install -r requirements.txt
 3. Open the notebook
    Open:
 
