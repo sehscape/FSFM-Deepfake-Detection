@@ -132,7 +132,7 @@ deepfake_subset/
     CUDA-enabled PyTorch
 
 ## How to Run
-1. Clone the repository - git clone https://github.com/YOUR_USERNAME/FSFM-Deepfake-Detection.git cd FSFM-Deepfake-Detection
+1. Clone the repository - FSFM-Deepfake-Detection.git
 2. Install dependencies - pip install -r requirements.txt
 3. Open the notebook
    Open:
